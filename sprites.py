@@ -21,7 +21,8 @@ class Warrior(pygame.sprite.Sprite):
 
     def __init__(self, x, y, *group, state='statistie'):
         super().__init__(*group)
-        if state == 'warstate':
+        self.state = state
+        if self.state == 'warstate':
             self.image = Warrior.image_warstate
         else:
             self.image = Warrior.image_statistie
@@ -29,6 +30,6 @@ class Warrior(pygame.sprite.Sprite):
         self.rect.x = x
         self.rect.y = y
 
-    def update(self, x, y):
+    def update(self, x=self.rect.x, y=self.rect.y, state=self.state):
         self.rect = self.rect.move(x, y)
 
