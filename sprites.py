@@ -18,14 +18,17 @@ def load_image(name, colorkey=None):
 class Warrior(pygame.sprite.Sprite):
     image_statistie = load_image('warriorstatistie.png')
     image_warstate = load_image('warriorwarstate.png')
+    image_blockstate = load_image('warriorblockstate.png')
 
     def __init__(self, x, y, *group, state='statistie'):
         super().__init__(*group)
         self.state = state
         if self.state == 'warstate':
             self.image = Warrior.image_warstate
-        else:
+        elif self.state == 'statistie':
             self.image = Warrior.image_statistie
+        elif self.state == 'blockstate':
+            self.image = Warrior.image_blockstate
         self.rect = self.image.get_rect()
         self.rect.x = x
         self.rect.y = y
