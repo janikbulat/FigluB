@@ -32,6 +32,10 @@ class Warrior(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.x = x
         self.rect.y = y
+        self.hitpoints = 120
+        self.attack = 20
+        self.good_attack = 25
+        self.down_attack = 10
 
     def update(self, x=self.rect.x, y=self.rect.y, state=self.state):
         self.rect = self.rect.move(x, y)
