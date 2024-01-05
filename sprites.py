@@ -37,6 +37,18 @@ class Warrior(pygame.sprite.Sprite):
         self.good_attack = 25
         self.down_attack = 10
 
-    def update(self, x=self.rect.x, y=self.rect.y, state=self.state):
-        self.rect = self.rect.move(x, y)
-
+    def update(self, x='', y='', state=''):
+        if x == '':
+            x = self.rect.x
+        if y == '':
+            y = self.rect.y
+        if state == '':
+            state = self.state
+        self.rect = self.rect.move(x - self.rect.x, y - self.rect.y)
+        self.state = state
+        if self.state == 'warstate':
+            self.image = Warrior.image_warstate
+        elif self.state == 'statistie':
+            self.image = Warrior.image_statistie
+        elif self.state == 'blockstate':
+            self.image = Warrior.image_blockstate
